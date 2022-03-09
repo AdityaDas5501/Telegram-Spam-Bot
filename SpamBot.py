@@ -46,7 +46,7 @@ def timeMethod(update: Update, context: CallbackContext):
     update.message.reply_markdown_v2(fr'Enter the time interval:\-', reply_markup=ForceReply(selective=True))
     global msgPass
     msgPass=1
-    updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, set))
+    updater.dispatcher.add_handler(MessageHandler(Filters.text, set))
 
 def photo(update: Update, context: CallbackContext):
     update.message.reply_markdown_v2(fr'Upload the image with compression on:\-', reply_markup=ForceReply(selective=True))
