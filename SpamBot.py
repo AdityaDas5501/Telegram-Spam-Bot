@@ -106,7 +106,7 @@ def set(update: Update, context: CallbackContext):
     msgPass=0
 
 def help(update: Update, context: CallbackContext):
-    update.message.reply_text("Using this bot you can spam messages!  \n\nCommands:\n/start - Check whether bot is online \n/spammoti - Start the execution \n/time - Set the time interval (Default - 10 seconds) \n/photo - Set the picture to be shown \n/clear - Get some help \n/media - Set whether picture to be shown or not \n/text - Set the message to be shown or as the caption of the image \n/limit - Set how many messages to be sent (default - 5) \n/about - About Us")
+    update.message.reply_text("Using this bot you can spam messages!  \n\nCommands:\n/start - Check whether bot is online \n/spammoti - Start the execution \n/time - Set the time interval (Default - 10 seconds) \n/photo - Set the picture to be shown \n/clear - Delete current photo \n/media - Set whether picture to be shown or not \n/text - Set the message to be shown or as the caption of the image \n/limit - Set how many messages to be sent (default - 5) \n/about - About Us")
 
 def about(update: Update, context: CallbackContext):
     user = update.effective_user
