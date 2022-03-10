@@ -3,7 +3,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 import time
 
 # Create the Updater and pass it your bot's token.
-updater = Updater("<Your bot's API Token>")
+updater = Updater("5178852679:AAEdjvFZ3j93WGZn0b8XwVyOM9_j9lxfHvI")  #Your bot's API Token
 
 duration=1
 counter=1
