@@ -5,7 +5,7 @@ import time
 # Create the Updater and pass it your bot's token.
 updater = Updater("5178852679:AAEdjvFZ3j93WGZn0b8XwVyOM9_j9lxfHvI")  #Your bot's API Token
 
-duration=1
+duration=10
 counter=1
 limitv=5
 msgPass= 0
