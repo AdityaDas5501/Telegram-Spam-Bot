@@ -3,7 +3,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 import time
 
 # Create the Updater and pass it your bot's token.
-updater = Updater("5178852679:AAEdjvFZ3j93WGZn0b8XwVyOM9_j9lxfHvI")  #Your bot's API Token
+updater = Updater("5178852679:AAEdjvFZ3j93WGZn0b8XwVyOM9_j9lxfHvI")
 
 duration=10
 counter=1
@@ -11,7 +11,7 @@ limitv=5
 msgPass= 0
 mediav=True
 pic = None
-promote="Default spam message, can be changed using command"
+promote="🎬Title: Spider-Man: No Way Home (2021) \n🎭Genre: Action/Adventure \n📀Quality: 1080p \n🔊Audio: English \n\n🔥Channel Link: https://t.me/+hWU_V7RyRyg2NzU1 \n❗️Post Link: https://t.me/c/1683386910/17"
 
 
 def start(update: Update, context: CallbackContext):
@@ -24,6 +24,8 @@ def spammoti(update: Update, context: CallbackContext):
         if (pic != None):
             if(mediav==True):
                 context.bot.send_photo(chat_id=update.effective_chat.id, photo=pic, caption=promote)
+            else:
+                update.message.reply_text(promote)
         else:
             update.message.reply_text(promote)
         counter+=1
@@ -35,11 +37,13 @@ def media(update: Update, context: CallbackContext):
     global  mediav
     update.message.reply_text("Photo set to: "+str(mediav))
     update.message.reply_text("Tap /change to change")
-    updater.dispatcher.add_handler(CommandHandler("change", change))
 
 def change(update: Update, context: CallbackContext):
     global mediav
-    mediav=False
+    if (mediav==True):
+        mediav=False
+    else:
+        mediav=True
     update.message.reply_text("Changed successfully to: "+str(mediav))
 
 def timeMethod(update: Update, context: CallbackContext):
@@ -53,6 +57,11 @@ def photo(update: Update, context: CallbackContext):
     global msgPass
     msgPass=2
     updater.dispatcher.add_handler(MessageHandler(Filters.photo, set))
+
+def clear(update: Update, context: CallbackContext):
+    global pic
+    pic = None
+    update.message.reply_text("Photo deleted!")
 
 def text(update: Update, context: CallbackContext):
     update.message.reply_markdown_v2(fr'Enter the text to be shown:\-',reply_markup=ForceReply(selective=True))
@@ -80,7 +89,7 @@ def set(update: Update, context: CallbackContext):
         pic = update.message.photo[0].file_id
         try:
             context.bot.send_photo(chat_id=update.effective_chat.id, photo=pic, caption="Current Photo!")
-            update.message.reply_text("Photo changed successfully!")
+            update.message.reply_text("Photo changed successfully! Press /clear to delete")
         except:
             update.message.reply_text("Error!")
     if (msgPass == 3):
@@ -108,6 +117,8 @@ This bot is created by [Adi ╰\_╯ Das](https://t.me/Adi5501)')
 updater.dispatcher.add_handler(CommandHandler("start", start))
 updater.dispatcher.add_handler(CommandHandler("spammoti", spammoti))
 updater.dispatcher.add_handler(CommandHandler("media", media))
+updater.dispatcher.add_handler(CommandHandler("change", change))
+updater.dispatcher.add_handler(CommandHandler("clear", clear))
 updater.dispatcher.add_handler(CommandHandler("time", timeMethod))
 updater.dispatcher.add_handler(CommandHandler("photo", photo))
 updater.dispatcher.add_handler(CommandHandler("text", text))
