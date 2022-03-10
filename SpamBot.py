@@ -15,7 +15,7 @@ promote="Bruh!"
 
 
 def start(update: Update, context: CallbackContext):
-    update.message.reply_text("Up and Running, no problem")
+    update.message.reply_text("Up and Running, no problem \nTap /help for some help :)")
     update.message.reply_text("Chat ID: "+str(update.effective_chat.id))
 
 def spammoti(update: Update, context: CallbackContext):
@@ -84,18 +84,18 @@ def set(update: Update, context: CallbackContext):
             update.message.reply_text("Time interval set to: " + update.message.text + " seconds")
         except:
             update.message.reply_text("Enter a integer value!")
+
     if(msgPass == 2):
         global pic
         pic = update.message.photo[0].file_id
-        try:
-            context.bot.send_photo(chat_id=update.effective_chat.id, photo=pic, caption="Current Photo!")
-            update.message.reply_text("Photo changed successfully! Press /clear to delete")
-        except:
-            update.message.reply_text("Error!")
+        context.bot.send_photo(chat_id=update.effective_chat.id, photo=pic, caption="Current Photo!")
+        update.message.reply_text("Photo changed successfully! Tap /clear to delete")
+
     if (msgPass == 3):
         global promote
         promote = update.message.text
         update.message.reply_text("Text successfully updated to: \""+promote+"\"")
+
     if(msgPass==4):
         global limitv
         try:
