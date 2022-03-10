@@ -16,7 +16,7 @@ promote="Bruh!"
 
 def start(update: Update, context: CallbackContext):
     update.message.reply_text("Up and Running, no problem \nTap /help for some help :)")
-    update.message.reply_text("Chat ID: "+str(update.effective_chat.id))
+    update.message.reply_markdown_v2(fr'Chat ID: `'+str(update.effective_chat.id)+'`')
 
 def spammoti(update: Update, context: CallbackContext):
     global counter
