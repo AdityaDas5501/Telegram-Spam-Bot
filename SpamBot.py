@@ -116,3 +116,4 @@ updater.dispatcher.add_handler(CommandHandler("help", help))
 updater.dispatcher.add_handler(CommandHandler("about", about))
 
 updater.start_polling()
+updater.idle()
