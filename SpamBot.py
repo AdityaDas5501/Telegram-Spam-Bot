@@ -11,7 +11,7 @@ limitv=5
 msgPass= 0
 mediav=True
 pic = None
-promote="🎬Title: Spider-Man: No Way Home (2021) \n🎭Genre: Action/Adventure \n📀Quality: 1080p \n🔊Audio: English \n\n🔥Channel Link: https://t.me/+hWU_V7RyRyg2NzU1 \n❗️Post Link: https://t.me/c/1683386910/17"
+promote="Bruh!"
 
 
 def start(update: Update, context: CallbackContext):
@@ -106,7 +106,10 @@ def set(update: Update, context: CallbackContext):
     msgPass=0
 
 def help(update: Update, context: CallbackContext):
-    update.message.reply_text("Using this bot you can spam messages!  \n\nCommands:\n/start - Check whether bot is online \n/spammoti - Start the execution \n/time - Set the time interval (Default - 10 seconds) \n/photo - Set the picture to be shown \n/clear - Delete current photo \n/media - Set whether picture to be shown or not \n/text - Set the message to be shown or as the caption of the image \n/limit - Set how many messages to be sent (default - 5) \n/about - About Us")
+    global duration
+    global limitv
+    global promote
+    update.message.reply_text("Using this bot you can spam messages! First choose a time interval between messages and then a limit i.e how many messages to be shown. Then using \"text\" command enter the message to be spammed! Giving photo is optional.  \n\nCommands:\n/start - Check whether bot is online \n/spammoti - Start the execution \n/time - Set the time interval (Currently: "+str(duration)+" seconds) \n/photo - Set the picture to be shown \n/clear - Delete current photo \n/media - Set whether picture to be shown or not \n/limit - Set how many messages to be sent (Currently: "+str(limitv)+") \n/text - Set the message to be shown or as the caption of the image (Currently: \""+promote+"\") \n/about - About Us")
 
 def about(update: Update, context: CallbackContext):
     user = update.effective_user
