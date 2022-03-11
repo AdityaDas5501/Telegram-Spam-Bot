@@ -77,6 +77,9 @@ def limit(update: Update, context: CallbackContext):
 
 def set(update: Update, context: CallbackContext):
     global msgPass
+    if(msgPass == 0):
+         update.message.reply_text("Uhhh what?, if you want some help then tap /help")
+
     if(msgPass == 1):
         global duration
         try:
@@ -128,6 +131,7 @@ updater.dispatcher.add_handler(CommandHandler("text", text))
 updater.dispatcher.add_handler(CommandHandler("limit", limit))
 updater.dispatcher.add_handler(CommandHandler("help", help))
 updater.dispatcher.add_handler(CommandHandler("about", about))
+updater.dispatcher.add_handler(MessageHandler(Filters.text, set))
 
 updater.start_polling()
 updater.idle()
