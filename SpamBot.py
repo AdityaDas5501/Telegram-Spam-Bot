@@ -78,7 +78,7 @@ def limit(update: Update, context: CallbackContext):
 def set(update: Update, context: CallbackContext):
     global msgPass
     if(msgPass == 0):
-         update.message.reply_text("Uhhh what?, if you want some help then tap /help")
+        update.message.reply_text("Uhhh what?, if you want some help then tap /help")
 
     if(msgPass == 1):
         global duration
